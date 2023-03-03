@@ -1,0 +1,79 @@
+/*
+RESET  
+*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* 
+Utilities  
+*/
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+}
+.azzurro{
+    background-color: #3535ec;
+}
+/* 
+Header  & Footer
+*/
+header, footer{
+    background-color: #3535ec;
+    padding: 1.25rem;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #00de6b;
+}
+.btn{
+    border: .0625rem solid #00de6b;
+    border-radius: 1.25rem;
+    margin: .3125rem;
+    padding: .625rem;
+    color: white;
+    cursor: pointer;
+}
+.white_btn{
+    border: .0625rem solid #00de6b;
+    border-radius: 1.25rem;
+    padding: .625rem;
+    background-color: #00de6b;
+    color: #3535ec;
+    cursor: pointer;
+}
+.btn-container{
+    display: flex;
+}
+
+/* 
+Main  
+*/
+main{
+    margin: 1.25rem 0;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.board{
+    width: 40.625rem;
+    height: 40.625rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.cell{
+    border: .0625rem solid #00de6b;
+    width: calc(100% / 10);
+    height: calc(100% / 10); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
