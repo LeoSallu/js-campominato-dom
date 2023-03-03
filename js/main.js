@@ -12,6 +12,19 @@ function myAppendElement(containerElement , htmlElement){
 }
 function pratoFiorito(){
     boardBox.innerHTML = '';
+        // Switch Per Difficoltà 
+    let cellNum;
+    switch(selector.value){
+        case 'Intermedio':
+            cellNum=81;
+            break
+        case 'Pro':
+            cellNum=49;
+            break
+        case 'Facile':
+            default:
+            cellNum=100;
+    }
     // Ciclo for per generare celle 
     for(let i = 1 ; i <= cellNum; i++){
         const createdElement = elementCreator('div', 'cell', i);
@@ -35,44 +48,12 @@ function pratoFiorito(){
             // Button Utilities
         button.classList.add('white_btn');
         button.classList.remove('btn');
-        button.innerHTML = ('Partita Iniziata');
+        button.innerHTML = ('Partita Iniziata');                
     }}
-// Board Box
+    // Board Box
 const button = document.getElementById('match_start');
 const reset = document.getElementById('reset');
 const boardBox = document.querySelector('.board');
-let cellNum;
-let level = 1;
-const facile = document.getElementById('facile');
-const intermedio = document.getElementById('intermedio');
-const pro = document.getElementById('pro');
-// Switch Per Difficoltà 
-switch(level){
-    case 2:
-        cellNum=81;
-        break
-    case 3:
-        cellNum=49;
-        break
-        
-    case 1:
-        default:
-        cellNum=100;
-
-}
-//Selezione difficoltà
-facile.addEventListener('click',
-function(){
-    level=1;
-})
-intermedio.addEventListener('click',
-function(){
-    level=2;
-})
-pro.addEventListener('click',
-function(){
-    level=3;
-})
-//Button Generazione Celle
+let selector = document.getElementById('selector');
 button.addEventListener('click', pratoFiorito);
 
