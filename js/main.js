@@ -4,7 +4,7 @@
 function elementCreator(htmlElement,className,htmlValue){
     const element = document.createElement(htmlElement);
     element.classList.add(className);
-    element.innerText = htmlValue;
+    element.innerText = htmlValue;    
     return element;
 }
 function myAppendElement(containerElement , htmlElement){
@@ -31,8 +31,12 @@ function pratoFiorito(){
         myAppendElement(boardBox,createdElement);
         createdElement.addEventListener('click',
         function(){
-            createdElement.classList.add('azzurro');
+            if (bombIndex.includes(i)){
+                createdElement.classList.add('bomb');
+            }
+            else{createdElement.classList.add('azzurro');
             console.log(i);
+            }
         }
         )
         //Button Reset
@@ -50,10 +54,26 @@ function pratoFiorito(){
         button.classList.remove('btn');
         button.innerHTML = ('Partita Iniziata');                
     }}
-    // Board Box
+            //Array Function
+function arrayBombGenerator(maxNum) {
+    let bombArray = [''];
+    while (bombArray.length <= 16) {
+      let randomNum = Math.floor(Math.random() * maxNum) + 1;
+      if (!bombArray.includes(randomNum)) {
+        bombArray.push(randomNum);
+      }
+    }
+    return bombArray;
+  }
+
+// Board Box
 const button = document.getElementById('match_start');
 const reset = document.getElementById('reset');
 const boardBox = document.querySelector('.board');
 let selector = document.getElementById('selector');
+let cellNum;
 button.addEventListener('click', pratoFiorito);
+let bombIndex = arrayBombGenerator(16);
+console.log(bombIndex);
+
 
